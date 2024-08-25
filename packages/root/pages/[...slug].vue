@@ -20,6 +20,12 @@ const config = useAppConfig()
 const router = useRouter()
 const route = useRoute()
 
+const {
+  x = 1,
+  y = 1,
+  z = 1,
+} = route.params
+
 const theme = `theme-${config.theme.name}-default`
 
 onMounted(() => {
@@ -29,8 +35,7 @@ onMounted(() => {
 
 <template>
   <div>
-    {{ router }}
-    {{ route }}
-    <NuxtLayout :name="theme" />
+    <p>{{ router.getRoutes().length }}</p>
+    <NuxtLayout :name="theme" :x="x" :y="y" :z="z" />
   </div>
 </template>

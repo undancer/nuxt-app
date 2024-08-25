@@ -1,5 +1,5 @@
 import type { RouteLocationNormalized } from 'vue-router'
-import { defineNuxtRouteMiddleware } from '#imports'
+import { abortNavigation, defineNuxtRouteMiddleware, navigateTo } from '#imports'
 
 export default defineNuxtRouteMiddleware((to: RouteLocationNormalized, from: RouteLocationNormalized) => {
   // eslint-disable-next-line no-console
