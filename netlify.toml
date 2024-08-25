@@ -13,6 +13,7 @@
   # path "root/project/build-output"
 
 #   publish = ".output/public"
+  publish = "dist"
 
   # Default build command.
   command = "pnpm --filter root run build"
