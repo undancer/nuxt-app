@@ -16,7 +16,8 @@
   publish = "dist"
 
   # Default build command.
-  command = "pnpm --filter root run build"
+#   command = "pnpm --filter root run build"
+  command = "pnpm run build"
 
 # [[plugins]]
 #   # Installs the Lighthouse Build Plugin for all deploy contexts
