@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { RouteLocationNormalized } from 'vue-router'
 import { onMounted } from 'vue-demi'
 import { NuxtLayout } from '#components'
 import { definePageMeta, useAppConfig, useRoute, useRouter } from '#imports'
@@ -7,7 +8,7 @@ import { definePageMeta, useAppConfig, useRoute, useRouter } from '#imports'
 definePageMeta({
   name: 'main',
   middleware: [
-    function (to) {
+    function (to: RouteLocationNormalized) {
       // eslint-disable-next-line no-console
       console.log(to.name)
     },
