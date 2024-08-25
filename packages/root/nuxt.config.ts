@@ -7,5 +7,8 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@unocss/nuxt',
     '@vueuse/nuxt',
+    '@pinia/nuxt',
+    '@tresjs/nuxt',
+    '@nuxtjs/leaflet',
   ],
 })

@@ -1,9 +1,11 @@
 // eslint.config.mjs
 import antfu from '@antfu/eslint-config'
 
-export default antfu(
-  {},
-  {
-    rules: {},
+export default antfu({
+  stylistic: {
+    indent: 2,
+    quotes: 'single',
   },
-)
+}, {
+  rules: {},
+})
