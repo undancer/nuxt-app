@@ -6,6 +6,13 @@ import { definePageMeta, useAppConfig, useRoute, useRouter } from '#imports'
 
 definePageMeta({
   name: 'main',
+  middleware: [
+    function (to) {
+      // eslint-disable-next-line no-console
+      console.log(to.name)
+    },
+    'my-middleware',
+  ],
 })
 
 const config = useAppConfig()
@@ -21,10 +28,8 @@ onMounted(() => {
 
 <template>
   <div>
-    page
-    theme: {{ theme }}
     {{ router }}
     {{ route }}
-    <NuxtLayout />
+    <NuxtLayout :name="theme" />
   </div>
 </template>
