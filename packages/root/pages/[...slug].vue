@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { RouteLocationNormalized } from 'vue-router'
 import { onMounted } from 'vue-demi'
-import { NuxtLayout } from '#components'
-import { definePageMeta, useAppConfig, useRoute, useRouter } from '#imports'
+import { ContentRenderer, NuxtLayout } from '#components'
+import { definePageMeta, useAppConfig, useAsyncData, useRoute, useRouter } from '#imports'
 // import { definePageMeta } from '#app'
 
 definePageMeta({
@@ -12,7 +12,7 @@ definePageMeta({
       // eslint-disable-next-line no-console
       console.log(to.name)
     },
-    'my-middleware',
+    // 'my-middleware',
   ],
 })
 
@@ -28,6 +28,10 @@ const {
 
 const theme = `theme-${config.theme.name}-default`
 
+const { data } = await useAsyncData('foo', () => {
+  return queryContent('').where({ _path: route.path }).findOne()
+})
+
 onMounted(() => {
 
 })
@@ -36,6 +40,7 @@ onMounted(() => {
 <template>
   <div>
     <p>{{ router.getRoutes().length }}</p>
+    <ContentRenderer :value="data" />
     <NuxtLayout :name="theme" :x="x" :y="y" :z="z" />
   </div>
 </template>
