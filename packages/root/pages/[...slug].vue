@@ -28,8 +28,9 @@ const {
 
 const theme = `theme-${config.theme.name}-default`
 
-const { data } = await useAsyncData('foo', () => {
-  return queryContent('').where({ _path: route.path }).findOne()
+const { data, status } = await useAsyncData('foo', () => {
+  const { path: _path } = route
+  return queryContent('').where({ _path }).findOne()
 })
 
 onMounted(() => {
@@ -40,7 +41,10 @@ onMounted(() => {
 <template>
   <div>
     <p>{{ router.getRoutes().length }}</p>
-    <ContentRenderer :value="data" />
+    <ContentRenderer
+      v-if="status === 'success'"
+      :value="data"
+    />
     <NuxtLayout :name="theme" :x="x" :y="y" :z="z" />
   </div>
 </template>
