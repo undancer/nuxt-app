@@ -6,6 +6,7 @@ export default antfu({
     indent: 2,
     quotes: 'single',
   },
+  // ignores: ['.devcontainer/devcontainer.json'],
 }, {
   rules: {},
 })
