@@ -8,14 +8,10 @@ interface Props {
 }
 
 const {
-  x,
-  y,
-  z,
-} = withDefaults(defineProps<Props>(), {
-  x: 1,
-  y: 1,
-  z: 1,
-})
+  x = 1,
+  y = 1,
+  z = 1,
+} = defineProps<Props>()
 </script>
 
 <template>
